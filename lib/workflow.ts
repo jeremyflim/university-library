@@ -1,7 +1,8 @@
 import { Client as WorkflowClient } from "@upstash/workflow";
 import config from "@/lib/config";
+import nodemailer from "nodemailer";
 
-type EmailParams = {
+type EmailProps = {
   email: string;
   subject: string;
   message: string;
@@ -16,32 +17,27 @@ export async function sendEmail({
   email,
   subject,
   message,
-}: EmailParams): Promise<void> {
-  const serviceId = "university-library";
-  const templateId = "general_email";
-  const publicKey = config.env.emailjs.publicKey;
-
-  const payload = {
-    service_id: serviceId,
-    template_id: templateId,
-    user_id: publicKey,
-    template_params: {
-      email,
-      subject,
-      message,
+}: EmailProps): Promise<void> {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: config.env.mail.user,
+      pass: config.env.mail.password,
     },
-  };
-
-  const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
   });
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.log(`EmailJS error: ${errorText}`);
+  const mailOptions = {
+    from: "BookNGo",
+    to: email,
+    subject: subject,
+    text: message,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully");
+  } catch (error) {
+    console.error("Error sending email:", error);
+    throw error;
   }
 }
