@@ -8,6 +8,20 @@
       "when": 1742816925636,
       "tag": "0000_warm_leo",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1742907194795,
+      "tag": "0001_square_butterfly",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1742908465478,
+      "tag": "0002_military_peter_quill",
+      "breakpoints": true
     }
   ]
 }
