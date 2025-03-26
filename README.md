@@ -26,9 +26,6 @@ The project is deployed on Vercel and is designed to be simple to set up, extend
 - [Configuration](#configuration)
 - [Running Locally](#running-locally)
 - [Deployment](#deployment)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
