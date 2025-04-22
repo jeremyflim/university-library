@@ -61,6 +61,8 @@ The project is deployed on Vercel and is designed to be simple to set up, extend
 You can view the live demo of the project here:
 [[https://university-library-eight-eosin.vercel.app/](https://university-library-eight-eosin.vercel.app/)]
 
+Note: The demo might be down/non-functional sometimes due to Upstash inactivity deletions
+
 ---
 
 ## Installation
