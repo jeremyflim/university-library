@@ -13,7 +13,7 @@ The project is deployed on Vercel and is designed to be simple to set up, extend
 - Upstash
 - ImageKit
 - TypeScript
-- Resend
+- Nodemailer
 - Tailwind CSS
   
 ---
